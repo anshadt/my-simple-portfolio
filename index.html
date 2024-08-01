@@ -271,23 +271,35 @@
                         <div class="col-md-8">
                             <div class="contact-form">
                                 <div id="result"></div>
-                                <form action="https://api.web3forms.com/submit" method="POST" name="sentMessage" id="contactForm" novalidate="novalidate">
+                                <form action="https://api.web3forms.com/submit" onsubmit="return ValidateForm()" method="POST" name="sentMessage" id="contactForm" novalidate="novalidate">
                                     <input type="hidden" name="access_key" value="c059feec-8bfe-4ec2-ad82-2fc58304d29a">
                                     <div class="control-group">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" />
-                                        <p class="help-block"></p>
+                                        <p class="help-block" ></p>
+                                        <small>
+                                        <p class="text-danger" id="errorName"></p>
+                                    </small>
                                     </div>
                                     <div class="control-group">
                                         <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" />
-                                        <p class="help-block"></p>
+                                        <p class="help-block "></p>
+                                        <small>
+                                            <p class="text-danger" id="errorEmail"></p>
+                                        </small>
                                     </div>
                                     <div class="control-group">
                                         <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" />
                                         <p class="help-block"></p>
+                                        <small>
+                                            <p class="text-danger" id="errorSubject"></p>
+                                        </small>
                                     </div>
                                     <div class="control-group">
                                         <textarea class="form-control" id="message" name="message" placeholder="Message" required="required"></textarea>
-                                        <p class="help-block"></p>
+                                        <p class="help-block text-danger"></p>
+                                        <small>
+                                            <p class="text-danger" id="errorMessage"></p>
+                                        </small>
                                     </div>
                                     <div>
                                         <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
@@ -432,5 +444,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="validation.js"></script>
     </body>
 </html>
